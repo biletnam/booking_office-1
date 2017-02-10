@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   resources :trains
+  resources :routes
+  
   get 'welcome/index'
 
   resources :railway_stations
