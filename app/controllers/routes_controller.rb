@@ -44,11 +44,8 @@ class RoutesController < ApplicationController
     @route.destroy
     respond_to do |format|
       format.html { redirect_to routes_path, notice: 'Route was successfully destroyed.' }
-      format.json { head :no_content }
+      #format.json { head :no_content }
     end
-
-    # @route.destroy
-    # redirect_to routes_path
   end
 
   private
