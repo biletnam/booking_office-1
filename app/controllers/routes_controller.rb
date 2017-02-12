@@ -14,10 +14,14 @@ class RoutesController < ApplicationController
   def create
     @route = Route.new(routes_params)
 
-    if @route.save
-      redirect_to @route
-    else
-      render :new
+    respond_to do |format|
+      if @route.save
+        format.html { redirect_to @route, notice: 'Route was successfully created.' }
+        #format.json { render :show, status: :created, location: @route }
+      else
+        format.html { render :new }
+        #format.json { render json: @route.errors, status: :unprocessable_entity }
+      end
     end
   end
 
@@ -25,16 +29,26 @@ class RoutesController < ApplicationController
   end
 
   def update
-    if @route.update(routes_params)
-      redirect_to @route
-    else
-      render :edit
-    end    
+    respond_to do |format|
+      if @route.update(route_params)
+        format.html { redirect_to @route, notice: 'Route was successfully updated.' }
+        #format.json { render :show, status: :ok, location: @route }
+      else
+        format.html { render :edit }
+        #format.json { render json: @route.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def destroy
     @route.destroy
-    redirect_to routes_path
+    respond_to do |format|
+      format.html { redirect_to routes_path, notice: 'Route was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+
+    # @route.destroy
+    # redirect_to routes_path
   end
 
   private
@@ -43,7 +57,7 @@ class RoutesController < ApplicationController
     @route = Route.find(params[:id])   
   end
 
-  def routes_params
+  def route_params
     params.require(:route).permit(:name)
   end
 end
