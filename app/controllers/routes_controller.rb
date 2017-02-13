@@ -12,7 +12,7 @@ class RoutesController < ApplicationController
   end
 
   def create
-    @route = Route.new(routes_params)
+    @route = Route.new(route_params)
 
     respond_to do |format|
       if @route.save
