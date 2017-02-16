@@ -15,8 +15,7 @@
     <%= f.label :number %>
     <%= f.text_field :number %>
   </div>
-
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "#{ train.new_record? ? 'Create' : 'Save' }" %>
   </div>
 <% end %>
