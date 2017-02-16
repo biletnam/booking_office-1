@@ -17,10 +17,8 @@ class RoutesController < ApplicationController
     respond_to do |format|
       if @route.save
         format.html { redirect_to @route, notice: 'Route was successfully created.' }
-        #format.json { render :show, status: :created, location: @route }
       else
         format.html { render :new }
-        #format.json { render json: @route.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -32,10 +30,8 @@ class RoutesController < ApplicationController
     respond_to do |format|
       if @route.update(route_params)
         format.html { redirect_to @route, notice: 'Route was successfully updated.' }
-        #format.json { render :show, status: :ok, location: @route }
       else
         format.html { render :edit }
-        #format.json { render json: @route.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -44,7 +40,6 @@ class RoutesController < ApplicationController
     @route.destroy
     respond_to do |format|
       format.html { redirect_to routes_path, notice: 'Route was successfully destroyed.' }
-      #format.json { head :no_content }
     end
   end
 
