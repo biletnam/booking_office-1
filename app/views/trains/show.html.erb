@@ -6,6 +6,14 @@
 </p>
 
 <p>
+  <strong>At station:</strong> 
+  <% if @train.current_station %>
+    <%= @train.current_station.title %>
+  <% else %>
+    Train not at route.
+  <% end %>
+</p>
+<p>
   <%= link_to 'Edit', edit_train_path(@train) %> |
   <%= link_to 'Back', trains_path %><br>
   <%= link_to 'Back to index', welcome_index_path %>
