@@ -1,0 +1,3 @@
+class EconomyCarriage < Carriage
+    
+end
