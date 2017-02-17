@@ -10,10 +10,7 @@
   <div class = 'field'>
     <%= f.label :current_station %>
     <%= f.collection_select :current_station_id, RailwayStation.all, :id, :title  %>
-    
   </div>
-  
-  
   
   <div class="actions">
     <%= f.submit "#{ train.new_record? ? 'Create' : 'Save' }" %>

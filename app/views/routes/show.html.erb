@@ -6,6 +6,20 @@
 </p>
 
 <p>
+  <strong>Route stations:</strong>
+</p>
+<p>
+  <% if @route.railway_stations.empty? %>
+    Empty list.
+  <% else %>
+    <% @route.railway_stations.each do |station| %>
+      <ul>
+        <li><%= station.title %></li>
+      </ul>
+    <% end %>
+  <% end %>
+</p>  
+<p>
   <%= link_to 'Edit', edit_route_path(@route) %> |
   <%= link_to 'Back', routes_path %><br>
   <%= link_to 'Back to index', welcome_index_path %>
