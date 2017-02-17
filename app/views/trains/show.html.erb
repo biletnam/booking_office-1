@@ -13,6 +13,19 @@
     Train not at station.
   <% end %>
 </p>
+
+<p>
+  <strong>At route:</strong> 
+  <% if @train.route %>
+    <%= @train.route.name %>
+  <% else %>
+    Train not at route.
+  <% end %>
+</p>
+
+
+
+
 <p>
   <%= link_to 'Edit', edit_train_path(@train) %> |
   <%= link_to 'Back', trains_path %><br>
