@@ -1,15 +1,4 @@
 <p>
   <strong>Trains at route:</strong>
 </p>
-<p>
-  <% if @route.trains.empty? %>
-    No trains at route.
-  <% else%>
-    <% @route.trains.each do |train| %>
-      <ul>
-        <li>Train number <%= train.number %></li>
-      </ul>
-    <% end %>
-  <% end %>
-</p>
-<p>
+<%= render 'collection', resource: @route.trains %>

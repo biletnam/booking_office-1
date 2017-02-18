@@ -1,0 +1,15 @@
+<p> 
+  <% if resource.empty? %>
+    Empty list.
+  <% else %>
+    <% resource.each do |res| %>
+      <ul>
+        <% if res.class.to_s == 'Train' %>
+          <li><%= res.number %></li>
+        <% elsif res.class.to_s == 'RailwayStation' %>
+          <li><%= res.title %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  <% end %>
+</p>
