@@ -18,6 +18,14 @@
   </div>
 
 
+  <div class = 'field'>
+    <%= f.label 'Connent to train' %>
+    <%= f.collection_select :train_id, Train.all, :id, :number  %>
+  </div>
+
+
+
+
   <div class="actions">
     <%= f.submit "#{ carriage.new_record? ? 'Create' : 'Save' }" %>
   </div>

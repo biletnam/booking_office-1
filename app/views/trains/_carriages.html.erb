@@ -1,0 +1,12 @@
+<p>
+  <strong>Carriages:</strong>   
+  <% if resource.carriages %>
+    <% resource.carriages.each do |carriage| %>
+      <ul>
+        <li>Carriage number <b><%= carriage.number %></b> <%= carriage.kind %> type with <%= carriage.seats %> seats.</li>
+      </ul>
+    <%end%>
+  <% else %>
+    No carriages connected.
+  <% end %>
+</p> 
