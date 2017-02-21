@@ -1,12 +1,28 @@
 <p>
-  <strong>Carriages:</strong>   
-  <% if resource.carriages %>
-    <% resource.carriages.each do |carriage| %>
-      <ul>
-        <li>Carriage number <b><%= carriage.number %></b> <%= carriage.kind %> type with <%= carriage.seats %> seats.</li>
-      </ul>
-    <%end%>
+  <strong>Carriages:</strong>
+  <% if resource.carriages.empty? %>
+      No carriages connected.
   <% else %>
-    No carriages connected.
+     <p>
+      Number of carriages:
+    </p>
+    <p>  
+      Economy: <%= number_of_economy_carriages resource.carriages %><br>
+      Coupe: <%= number_of_coupe_carriages resource.carriages %>
+    </p>
+    
+    <p>
+      Number of seats:<br>
+    </p>
+    <p>
+      Economy:<br>
+        Upper: <%= number_of_economy_seats %><br>
+        Lower: <%= number_of_economy_seats %>   
+    </p>
+    <p>
+      Coupe:<br>
+        Upper: <%= number_of_coupe_seats %><br>
+        Lower: <%= number_of_coupe_seats %>
+    </p>
   <% end %>
 </p> 

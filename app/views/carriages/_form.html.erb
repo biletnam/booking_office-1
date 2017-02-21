@@ -1,6 +1,6 @@
-<%= form_for(carriage) do |f| %>
+<%= form_for(@carriage) do |f| %>
 
-  <%= render 'common/errors', resource: carriage  %>
+  <%= render 'common/errors', resource: @carriage  %>
 
   <div class="field">
     <%= f.label :number %>
@@ -9,24 +9,15 @@
 
   <div class = 'field'>
     <%= f.label 'Type' %>
-    <%= f.select :kind, ['coupe', 'economy'] %>
+    <%= f.select :kind, Carriage.kinds %>
   </div>
 
   <div class = 'field'>
-    <%= f.label :seats %>
-    <%= f.text_field :seats %>
-  </div>
-
-
-  <div class = 'field'>
-    <%= f.label 'Connent to train' %>
+    <%= f.label 'Connenct to train' %>
     <%= f.collection_select :train_id, Train.all, :id, :number  %>
   </div>
 
-
-
-
   <div class="actions">
-    <%= f.submit "#{ carriage.new_record? ? 'Create' : 'Save' }" %>
+    <%= f.submit "#{ @carriage.new_record? ? 'Create' : 'Save' }" %>
   </div>
 <% end %>
