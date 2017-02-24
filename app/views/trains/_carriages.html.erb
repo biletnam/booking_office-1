@@ -1,14 +1,14 @@
 <p>
   <strong>Carriages:</strong>
-  <% if resource.carriages.empty? %>
+  <% if @train.carriages.empty? %>
       No carriages connected.
   <% else %>
      <p>
       Number of carriages:
     </p>
     <p>  
-      Economy: <%= number_of_economy_carriages resource.carriages %><br>
-      Coupe: <%= number_of_coupe_carriages resource.carriages %>
+      Economy: <%= @train.carriages.where(kind: :economy).count %><br>
+      Coupe: <%= @train.carriages.where(kind: :coupe).count %>
     </p>
     
     <p>
@@ -16,13 +16,13 @@
     </p>
     <p>
       Economy:<br>
-        Upper: <%= number_of_economy_seats %><br>
-        Lower: <%= number_of_economy_seats %>   
+        Upper: <%= calculate_seats @train.carriages.where(kind: :economy), :upper %><br>
+        Lower: <%= calculate_seats @train.carriages.where(kind: :economy), :lower %>   
     </p>
     <p>
       Coupe:<br>
-        Upper: <%= number_of_coupe_seats %><br>
-        Lower: <%= number_of_coupe_seats %>
+        Upper: <%= calculate_seats @train.carriages.where(kind: :coupe), :upper %><br>
+        Lower: <%= calculate_seats @train.carriages.where(kind: :coupe), :lower %>
     </p>
   <% end %>
 </p> 
