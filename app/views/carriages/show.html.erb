@@ -9,12 +9,17 @@
   <%= @carriage.kind %>
 </p>
 <p>  
-  <strong>Seats: </strong>
-  <%= @carriage.seats%>
+  <strong>Seats: </strong><br>
+  Upper: <%= @carriage.upper_seats%><br>
+  Lower: <%= @carriage.lower_seats%>
 </p>
 <p>  
   <strong>Connected to: </strong>
-  <%= @carriage.train.number %>
+  <% if @carriage.train %>
+    <%= @carriage.train.number %>
+  <% else %>
+    Not connected to any train.
+  <% end %>
 </p>
 
 

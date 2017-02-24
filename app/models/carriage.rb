@@ -1,18 +1,11 @@
 class Carriage < ActiveRecord::Base
   belongs_to :train, optional: true
-  before_save :set_seats
+  validates :upper_seats, inclusion: { in: 1..27 }
+  validates :lower_seats, inclusion: { in: 1..27 }
+
+  KINDS = [:coupe, :economy].freeze
 
   def self.kinds
-    @@kinds = [:coupe, :economy]
-  end
-
-  private
-  def set_seats
-    case self.kind
-    when 'coupe'
-      self.seats = 36
-    when 'economy'
-      self.seats = 54
-    end
+    KINDS
   end
 end
