@@ -1,0 +1,33 @@
+<%= form_for(@carriage) do |f| %>
+
+  <%= render 'common/errors', resource: @carriage  %>
+
+  <div class="field">
+    <%= f.label :number %>
+    <%= f.text_field :number %>
+  </div>
+
+  <div class = 'field'>
+    <%= f.label 'Type' %>
+    <%= f.select :kind, Carriage.kinds %>
+  </div>
+
+  <div class = 'field'>
+    <%=f.label :upper_seats %>
+    <%= f.text_field :upper_seats %>
+  </div>
+
+  <div class = 'field'>
+    <%=f.label :lower_seats %>
+    <%= f.text_field :lower_seats %>
+  </div>
+
+  <div class = 'field'>
+    <%= f.label 'Connenct to train' %>
+    <%= f.collection_select :train_id, Train.all, :id, :number  %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "#{ @carriage.new_record? ? 'Create' : 'Save' }" %>
+  </div>
+<% end %>
