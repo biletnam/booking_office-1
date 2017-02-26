@@ -7,8 +7,8 @@
       Number of carriages:
     </p>
     <p>  
-      Economy: <%= @train.carriages.where(kind: :economy).count %><br>
-      Coupe: <%= @train.carriages.where(kind: :coupe).count %>
+      Economy: <%= carriages_count(@train, :economy) %><br>
+      Coupe: <%= carriages_count(@train, :coupe) %>
     </p>
     
     <p>
@@ -16,13 +16,13 @@
     </p>
     <p>
       Economy:<br>
-        Upper: <%= calculate_seats @train.carriages.where(kind: :economy), :upper %><br>
-        Lower: <%= calculate_seats @train.carriages.where(kind: :economy), :lower %>   
+        Upper: <%= calculate_seats(@train, :economy, :upper_seats) %><br>
+        Lower: <%= calculate_seats(@train, :economy, :lower_seats) %>   
     </p>
     <p>
       Coupe:<br>
-        Upper: <%= calculate_seats @train.carriages.where(kind: :coupe), :upper %><br>
-        Lower: <%= calculate_seats @train.carriages.where(kind: :coupe), :lower %>
+        Upper: <%= calculate_seats(@train, :coupe, :upper_seats) %><br>
+        Lower: <%= calculate_seats(@train, :coupe, :lower_seats) %>
     </p>
   <% end %>
 </p> 

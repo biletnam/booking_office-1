@@ -1,15 +1,10 @@
 module CarriagesHelper
 
-  def calculate_seats carriages, type_seats
-    seats = 0
-    carriages.each do |carriage|
-      case type_seats
-      when :upper
-        seats += carriage.upper_seats
-      when :lower
-        seats += carriage.lower_seats
-      end
-    end
-    seats
+def carriages_count(train, carriage_kind)
+  train.carriages.where(kind: carriage_kind).count
+end
+
+  def calculate_seats(train, carriage_kind, seats_type)
+    train.carriages.where(kind: carriage_kind).sum(seats_type)
   end
 end
