@@ -1,9 +1,8 @@
 class Carriage < ActiveRecord::Base
   belongs_to :train, optional: true
-  validates :upper_seats, inclusion: { in: 0..27 }
-  validates :lower_seats, inclusion: { in: 0..27 }
+  validates :number, presence: true
 
-  KINDS = [:coupe, :economy].freeze
+  KINDS = [:coupe, :economy, :soft_seats, :luxe].freeze
 
   def self.kinds
     KINDS
