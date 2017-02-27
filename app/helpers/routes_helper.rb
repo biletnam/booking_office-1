@@ -2,7 +2,7 @@ module RoutesHelper
 
   def determine_class resource
     if resource.empty?
-      'Empty list'
+      concat(content_tag(:li, 'Empty list'))
     else
       resource.each do |res|
         case res.class.to_s
