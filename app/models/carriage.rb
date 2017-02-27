@@ -7,4 +7,7 @@ class Carriage < ActiveRecord::Base
   def self.kinds
     KINDS
   end
+
+
+  
 end
