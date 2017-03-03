@@ -13,15 +13,13 @@
 ActiveRecord::Schema.define(version: 20170227200856) do
 
   create_table "carriages", force: :cascade do |t|
-    t.string   "number",                       null: false
+    t.string   "number",                   null: false
     t.string   "kind"
-    t.integer  "upper_seats",      default: 0
-    t.integer  "lower_seats",      default: 0
-    t.integer  "side_upper_seats", default: 0
-    t.integer  "side_lower_seats", default: 0
-    t.integer  "soft_seat",        default: 0
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.integer  "upper_seats",  default: 0
+    t.integer  "lower_seats",  default: 0
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.integer  "index_number", default: 0
     t.integer  "train_id"
     t.string   "type"
     t.index ["train_id"], name: "index_carriages_on_train_id"
