@@ -14,7 +14,6 @@ ActiveRecord::Schema.define(version: 20170306171229) do
 
   create_table "carriages", force: :cascade do |t|
     t.string   "number",                  null: false
-    t.string   "kind"
     t.integer  "upper_seats", default: 0
     t.integer  "lower_seats", default: 0
     t.datetime "created_at",              null: false

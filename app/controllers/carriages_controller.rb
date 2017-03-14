@@ -50,6 +50,6 @@ class CarriagesController < ApplicationController
     end
 
     def carriage_params
-      params.require(:carriage).permit(:number, :kind, :upper_seats, :lower_seats, :train_id)
+      params.require(:carriage).permit(:number, :upper_seats, :lower_seats, :train_id)
     end
 end

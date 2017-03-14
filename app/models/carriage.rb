@@ -5,16 +5,16 @@ class Carriage < ActiveRecord::Base
 
   before_validation :set_position, if: :train_id?
   
-  KINDS = [:coupe, :economy, :soft_seats, :luxe].freeze
+  TYPES = [:coupe, :economy, :soft_seats, :luxe].freeze
 
-  def self.kinds
-    KINDS
+  def self.types
+    TYPES
   end
 
   private
 
   def set_position
-    self.position = Carriage.all.where(train_id: self.train_id).count + 1
+    self.position = Carriage.all.where(train_id: self.train_id).count.next
   end
 
 end
