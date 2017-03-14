@@ -1,3 +1,7 @@
+<% content_for(:head) do %>
+  <%= javascript_include_tag 'carriages' %>
+<% end %>
+
 <%= form_for(@carriage) do |f| %>
 
   <%= render 'common/errors', resource: @carriage  %>
