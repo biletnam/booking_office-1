@@ -1,7 +1,3 @@
-<% content_for(:head) do %>
-  <%= javascript_include_tag 'carriages' %>
-<% end %>
-
 <%= form_for(@carriage) do |f| %>
 
   <%= render 'common/errors', resource: @carriage  %>
@@ -13,28 +9,45 @@
 
   <div class = 'field'>
     <%= f.label 'Type' %>
-    <%= f.select :type, Carriage.types, {}, {:onChange=>"renderPartial();"} %>
+    <%= f.select :type, Carriage.types, { include_blank: 'Select type' }, { :onChange=>"renderPartial();" } %>
   </div>
+
+  <div id = "partial_place"></div>
+
 
   <div class = 'field'>
-    <%=f.label :upper_seats %>
-    <%= f.text_field :upper_seats %>
+    <%= f.label 'Connect to train' %>
+    <%= f.collection_select :train_id, Train.all, :id, :number %>
   </div>
-
-  <div class = 'field'>
-    <%=f.label :lower_seats %>
-    <%= f.text_field :lower_seats %>
-  </div>
-
-  <div class = 'field'>
-    <%= f.label 'Connenct to train' %>
-    <%= f.collection_select :train_id, Train.all, :id, :number  %>
-  </div>
-
-  <p id = "demo">
-  </p>
 
   <div class="actions">
     <%= f.submit "#{ @carriage.new_record? ? 'Create' : 'Save' }" %>
   </div>
+  
+<script type='text/javascript'>
+  function renderPartial() {
+      var x = document.getElementById("carriage_type").value;
+      if (x == 'coupe') {
+        document.getElementById("partial_place").innerHTML = "<%= j render 'coupe', f: f %>";
+      }
+      
+      if (x == 'economy') {
+        document.getElementById("partial_place").innerHTML = "<%= j render 'economy', f: f %>";
+      }
+      
+      if (x == 'soft_seats') {
+        document.getElementById("partial_place").innerHTML = "<%= j render 'soft_seats', f: f %>";
+      }
+      
+      if (x == 'luxe') {
+        document.getElementById("partial_place").innerHTML = "<%= j render 'luxe', f: f %>";
+      }
+  }
+</script>  
+  
 <% end %>
+
+
+
+
+
