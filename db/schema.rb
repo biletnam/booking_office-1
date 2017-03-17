@@ -16,6 +16,9 @@ ActiveRecord::Schema.define(version: 20170306171229) do
     t.string   "number",                  null: false
     t.integer  "upper_seats", default: 0
     t.integer  "lower_seats", default: 0
+    t.integer  "side_upper_seats", default: 0
+    t.integer  "side_lower_seats", default: 0
+    t.integer  "soft_seats", default: 0
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
     t.integer  "position",    default: 0

@@ -8,7 +8,7 @@
   </div>
 
   <div class = 'field'>
-    <%= f.label 'Type' %>
+    <%= f.label :type %>
     <%= f.select :type, Carriage.types, { include_blank: 'Select type' }, { :onChange=>"renderPartial();" } %>
   </div>
 
@@ -27,21 +27,22 @@
 <script type='text/javascript'>
   function renderPartial() {
       var x = document.getElementById("carriage_type").value;
-      if (x == 'coupe') {
-        alert(x);
-        document.getElementById("partial_place").innerHTML = "<%= j render 'coupe', f: f %>";
-      }
       
-      if (x == 'economy') {
-        document.getElementById("partial_place").innerHTML = "<%= j render 'economy', f: f %>";
-      }
-      
-      if (x == 'soft_seats') {
-        document.getElementById("partial_place").innerHTML = "<%= j render 'soft_seats', f: f %>";
-      }
-      
-      if (x == 'luxe') {
-        document.getElementById("partial_place").innerHTML = "<%= j render 'luxe', f: f %>";
+      switch(x) {
+        case 'coupe': 
+          document.getElementById("partial_place").innerHTML = "<%= j render 'coupe', f: f %>"
+          break
+        case 'economy': 
+          document.getElementById("partial_place").innerHTML = "<%= j render 'economy'  , f: f %>"
+          break
+        case 'soft_seats':
+          document.getElementById("partial_place").innerHTML = "<%= j render 'soft_seats', f: f %>"
+          break
+        case 'luxe': 
+          document.getElementById("partial_place").innerHTML = "<%= j render 'luxe', f: f %>"
+          break
+        default:
+          alert('Error!')
       }
   }
 </script>  
