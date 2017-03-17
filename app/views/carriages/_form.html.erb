@@ -28,6 +28,7 @@
   function renderPartial() {
       var x = document.getElementById("carriage_type").value;
       if (x == 'coupe') {
+        alert(x);
         document.getElementById("partial_place").innerHTML = "<%= j render 'coupe', f: f %>";
       }
       
