@@ -47,24 +47,24 @@ class CarriagesController < ApplicationController
   end
 
   private
-    def set_carriage
-      @carriage = Carriage.find(params[:id])
-    end
-
-    def carriage_params
-      params.require(:carriage).permit(:number, :upper_seats, :lower_seats, :type, :train_id, :coupe, :economy, :soft_seats, :luxe)
-    end
-    
     def set_type
       @type = type
     end
-    
+
     def type
-        Carriage.types.include?(params[:type]) ? params[:type] : "Carriage"
+      Carriage.types.include?(params[:type]) ? params[:type] : "Carriage"
     end
-    
+
     def type_class 
       type.constantize 
     end
     
+  
+    def set_carriage
+      @carriage = type_class.find(params[:id])
+    end
+
+    def carriage_params
+      params.require(type.underscore.to_sym).permit(:number, :upper_seats, :lower_seats, :type, :train_id)
+    end
 end
