@@ -6,7 +6,7 @@ class Carriage < ActiveRecord::Base
 
   before_validation :set_position, if: :train_id?
   
-  TYPES = [:coupe, :economy, :soft_seats, :luxe].freeze
+  TYPES = [:CoupeCarriage, :EconomyCarriage, :SoftSeatsCarriage, :LuxeCarriage].freeze
 
   def self.types
     TYPES

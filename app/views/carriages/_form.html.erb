@@ -1,4 +1,4 @@
-<%= form_for(@carriage) do |f| %>
+<%= form_for(@carriage, :as => :carriage) do |f| %>
 
   <%= render 'common/errors', resource: @carriage  %>
 
@@ -29,20 +29,18 @@
       var x = document.getElementById("carriage_type").value;
       
       switch(x) {
-        case 'coupe': 
+        case 'CoupeCarriage': 
           document.getElementById("partial_place").innerHTML = "<%= j render 'coupe', f: f %>"
           break
-        case 'economy': 
+        case 'EconomyCarriage': 
           document.getElementById("partial_place").innerHTML = "<%= j render 'economy'  , f: f %>"
           break
-        case 'soft_seats':
+        case 'SoftSeatsCarriage':
           document.getElementById("partial_place").innerHTML = "<%= j render 'soft_seats', f: f %>"
           break
-        case 'luxe': 
+        case 'LuxeCarriage': 
           document.getElementById("partial_place").innerHTML = "<%= j render 'luxe', f: f %>"
           break
-        default:
-          alert('Error!')
       }
   }
 </script>  
