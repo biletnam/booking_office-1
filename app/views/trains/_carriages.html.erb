@@ -3,26 +3,28 @@
   <% if @train.carriages.empty? %>
       No carriages connected.
   <% else %>
-     <p>
-      Number of carriages:
-    </p>
-    <p>  
-      Economy: <%= carriages_count(@train, :economy) %><br>
-      Coupe: <%= carriages_count(@train, :coupe) %>
-    </p>
+    <p id = "carriages"><%= show_carriages(@train) %></p>
+  
+    <!-- <p>-->
+    <!--  Number of carriages:-->
+    <!--</p>-->
+    <!--<p>  -->
+    <!--  Economy: <%= carriages_count(@train, :economy) %><br>-->
+    <!--  Coupe: <%= carriages_count(@train, :coupe) %>-->
+    <!--</p>-->
     
-    <p>
-      Number of seats:<br>
-    </p>
-    <p>
-      Economy:<br>
-        Upper: <%= calculate_seats(@train, :economy, :upper_seats) %><br>
-        Lower: <%= calculate_seats(@train, :economy, :lower_seats) %>   
-    </p>
-    <p>
-      Coupe:<br>
-        Upper: <%= calculate_seats(@train, :coupe, :upper_seats) %><br>
-        Lower: <%= calculate_seats(@train, :coupe, :lower_seats) %>
-    </p>
+    <!--<p>-->
+    <!--  Number of seats:<br>-->
+    <!--</p>-->
+    <!--<p>-->
+    <!--  Economy:<br>-->
+    <!--    Upper: <%= calculate_seats(@train, :economy, :upper_seats) %><br>-->
+    <!--    Lower: <%= calculate_seats(@train, :economy, :lower_seats) %>   -->
+    <!--</p>-->
+    <!--<p>-->
+    <!--  Coupe:<br>-->
+    <!--    Upper: <%= calculate_seats(@train, :coupe, :upper_seats) %><br>-->
+    <!--    Lower: <%= calculate_seats(@train, :coupe, :lower_seats) %>-->
+    <!--</p>-->
   <% end %>
 </p> 
