@@ -8,11 +8,12 @@
   <strong>Type: </strong>
   <%= @carriage.type %>
 </p>
-<p>  
-  <strong>Seats: </strong><br>
-  Upper: <%= @carriage.upper_seats%><br>
-  Lower: <%= @carriage.lower_seats%>
+
+<p>
+  <strong>Seats:</strong><br>
+  <div id = "seats"><%= show_seats(@carriage)%></div>
 </p>
+
 <p>  
   <strong>Connected to: </strong>
   <% if @carriage.train %>

@@ -3,7 +3,6 @@ class CarriagesController < ApplicationController
   before_action :set_type
 
   def index
-    #@carriages = Carriage.all
     @carriages = type_class.all
   end
 
@@ -22,7 +21,7 @@ class CarriagesController < ApplicationController
 
     respond_to do |format|
       if @carriage.save
-        format.html { redirect_to @carriage, notice: 'Carriage was successfully created.' }
+        format.html { redirect_to @carriage, notice: "Carriage was successfully created." }
       else
         format.html { render :new }
       end
@@ -59,12 +58,11 @@ class CarriagesController < ApplicationController
       type.constantize 
     end
     
-  
     def set_carriage
       @carriage = type_class.find(params[:id])
     end
 
     def carriage_params
-      params.require(type.underscore.to_sym).permit(:number, :upper_seats, :lower_seats, :type, :train_id)
+      params.require(type.underscore.to_sym).permit(:number, :upper_seats, :lower_seats, :side_upper_seats, :side_lower_seats, :soft_seats, :type, :train_id)
     end
 end
