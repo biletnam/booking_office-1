@@ -1,6 +1,6 @@
 module TrainsHelper
   def show_carriages(train)
-    train.sort ? @sorted_carriages = train.carriages.sort_by{|e| e[:position]} : @sorted_carriages = train.carriages.sort_by{|e| -e[:position]}
+    train.sort ? @sorted_carriages = train.carriages.order(:position) : @sorted_carriages = train.carriages.order(position: :desc)
     
     content_tag(:p, class: "carriages") do
       @sorted_carriages.each do |carriage|
@@ -10,6 +10,3 @@ module TrainsHelper
    end
   end
 end
-
-
-
