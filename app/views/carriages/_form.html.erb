@@ -9,10 +9,21 @@
 
   <div class = 'field'>
     <%= f.label :type %>
-    <%= f.select :type, Carriage.types, { include_blank: 'Select type' }, { :onChange=>"renderPartial();" } %>
+    <%= f.select :type, Carriage.types, {}, { :onChange=>"renderPartial();" } %> 
   </div>
 
-  <div id = "partial_place"></div>
+  <div class = 'CoupeCarriage', id = "CoupeCarriage">
+    <%= render 'coupe', f: f  %>
+  </div>
+  <div class = 'EconomyCarriage', id = "EconomyCarriage">
+    <%= render 'economy', f: f  %>
+  </div>
+  <div class = 'SoftSeatsCarriage', id = "SoftSeatsCarriage">
+    <%= render 'soft_seats', f: f  %>
+  </div>
+  <div class = 'LuxeCarriage', id = "LuxeCarriage">
+    <%= render 'luxe', f: f  %>
+  </div>
 
 
   <div class = 'field'>
@@ -23,28 +34,6 @@
   <div class="actions">
     <%= f.submit "#{ @carriage.new_record? ? 'Create' : 'Save' }" %>
   </div>
-  
-<script type='text/javascript'>
-  function renderPartial() {
-      var x = document.getElementById("carriage_type").value;
-      
-      switch(x) {
-        case 'CoupeCarriage': 
-          document.getElementById("partial_place").innerHTML = "<%= j render 'coupe', f: f %>"
-          break
-        case 'EconomyCarriage': 
-          document.getElementById("partial_place").innerHTML = "<%= j render 'economy'  , f: f %>"
-          break
-        case 'SoftSeatsCarriage':
-          document.getElementById("partial_place").innerHTML = "<%= j render 'soft_seats', f: f %>"
-          break
-        case 'LuxeCarriage': 
-          document.getElementById("partial_place").innerHTML = "<%= j render 'luxe', f: f %>"
-          break
-      }
-  }
-</script>  
-  
 <% end %>
 
 
