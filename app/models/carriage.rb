@@ -1,11 +1,21 @@
 class Carriage < ActiveRecord::Base
   belongs_to :train, optional: true
-  validates :upper_seats, inclusion: { in: 0..27 }
-  validates :lower_seats, inclusion: { in: 0..27 }
+  validates :type, presence: true
+  validates :number, presence: true
+  validates :position, uniqueness: { scope: :train_id }
 
-  KINDS = [:coupe, :economy].freeze
+  before_validation :set_position, if: :train_id?
+  
+  TYPES = [:CoupeCarriage, :EconomyCarriage, :SoftSeatsCarriage, :LuxeCarriage].freeze
 
-  def self.kinds
-    KINDS
+  def self.types
+    TYPES
   end
+
+  private
+
+  def set_position
+    self.position = Carriage.all.where(train_id: self.train_id).count.next
+  end
+
 end

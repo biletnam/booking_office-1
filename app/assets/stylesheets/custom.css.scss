@@ -2,3 +2,24 @@ footer {
   position: absolute;
   bottom: 0px;
 }
+
+.CoupeCarriage {
+  visibility: visible;
+  display: unset;
+}
+
+.EconomyCarriage {
+  visibility: hidden;
+  display: none;
+}
+
+.SoftSeatsCarriage {
+  visibility: hidden;
+  display: none;
+}
+
+.LuxeCarriage {
+  visibility: hidden;
+  display: none;
+}
+

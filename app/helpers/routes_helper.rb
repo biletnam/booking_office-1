@@ -2,14 +2,14 @@ module RoutesHelper
 
   def determine_class resource
     if resource.empty?
-      return 'Empty list'
+      concat(content_tag(:li, 'Empty list'))
     else
       resource.each do |res|
         case res.class.to_s
         when 'Train'
-          return res.number
+          concat(content_tag(:li, res.number))
         when 'RailwayStation'
-          return res.title
+          concat(content_tag(:li, res.title))
         end
       end
     end
