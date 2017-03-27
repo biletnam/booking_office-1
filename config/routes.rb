@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :trains
+  resources :trains do
+    
+  end
+  
+  
   resources :routes
   resources :carriages
   resources :coupe_carriages, controller: 'carriages', type: 'CoupeCarriage'
@@ -9,7 +13,9 @@ Rails.application.routes.draw do
   
   get 'welcome/index'
 
-  resources :railway_stations
+  resources :railway_stations do
+    patch :update_position, on: :member
+  end
   
   root "welcome#index"
 end
