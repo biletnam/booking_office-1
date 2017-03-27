@@ -16,5 +16,7 @@ Rails.application.routes.draw do
     patch :update_position, on: :member
   end
   
+  resource :search, only: [:new, :show, :edit] 
+  
   root "welcome#index"
 end
