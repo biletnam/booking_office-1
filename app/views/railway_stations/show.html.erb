@@ -5,6 +5,16 @@
   <%= @railway_station.title %>
 </p>
 
+<p>
+  <strong>Arrival:</strong>
+  <%= @railway_station.arrival.inspect %>
+</p>
+<p>
+  <strong>Departure:</strong>
+  <%= @railway_station.departure.inspect %>
+</p>
+
+
 <% if @railway_station.routes.empty? %>
   <p>Not included in any route.</p>
 <% else %>
