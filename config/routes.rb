@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     patch :update_departure, on: :member
   end
   
-  resource :search, only: [:new, :show, :edit] 
+  resource :search, only: [:show, :create] 
   
   root "welcome#index"
 end

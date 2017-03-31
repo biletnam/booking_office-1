@@ -1,13 +1,43 @@
 <h1>Search for tickets:</h1>
 
-<p>Choose departure station: </p>
-<!--<p>-->
-<!--  <% @railway_stations.each do |station| %>-->
-<!--    <%= station.title %><br>-->
-<!--  <% end %>-->
-<!--</p>-->
+<p>
+  <%= form_for(@search, method: :post , url: search_path) do |f| %>
+  <p>
+    <%= f.label :start_station_id, "Start station" %>
+    <%= f.collection_select :start_station_id, RailwayStation.all, :id, :title %>
+  </p>
 
+   <p>
+    <%= f.label :end_station_id, "End station" %>
+    <%= f.collection_select :end_station_id, RailwayStation.all, :id, :title %>
+  </p>
+  <p>
+    <%= f.submit 'Search'%>
+</p>
+    <% if @search.results %>
+      <table>
+        <thead>
+          <tr>
+            <td>Train</td>
+            <td>Route</td>
+            <td>Departure</td>
+            <td>Arrival</td>
+          </tr>
+        </thead>
+        <tbody>
+          <% @search.results.each do |result| %>
+          <tr>
+            <td><%= result.number %></td>
+            <td><%= result.route.name %></td>
+            <td><%= @search.find_start_station.set_time(result.route, :departure) %></td>
+            <td><%= @search.find_end_station.set_time(result.route, :arrival) %></td>
+            <td>
+              
+              <% end %>
+            <% end %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
 
-
-
-<p>Choose arrival station: </p>
+  <% end %>
