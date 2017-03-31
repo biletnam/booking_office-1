@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+<p>
+  <strong>Number:</strong>
+  <%= @ticket.number %>
+</p>
+<p>
+  <strong>Train number: </strong>
+  <%= @ticket.train.number %>
+</p>
+<p>
+  <strong>Start station: </strong>
+  <%= @ticket.departure_station.title %>
+</p>
+<p>
+  <strong>End station: </strong>
+  <%= @ticket.destination_station.title %>
+</p>
+<p>
+  <strong>Passenger name: </strong>
+  <%= @ticket.passenger %>
+</p>
+<p>
+  <strong>Passenger passport: </strong>
+  <%= @ticket.passport %>
+</p>
+<%= link_to 'Search for tickets', search_path %>|
+<%= link_to 'Back', tickets_path %>

@@ -3,6 +3,8 @@ Rails.application.routes.draw do
     resources :carriages, shallow: true
   end
   
+  resources :tickets
+  resources :users
   resources :routes
   resources :carriages
   resources :coupe_carriages, controller: 'carriages', type: 'CoupeCarriage'
