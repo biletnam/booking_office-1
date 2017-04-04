@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Number:</strong>
+  <%= @train.number %>
+</p>
+
+<p>
+  <strong>At station:</strong> 
+  <% if @train.current_station %>
+    <%= @train.current_station.title %>
+  <% else %>
+    Train not at station.
+  <% end %>
+</p>
+
+<p>
+  <strong>At route:</strong> 
+  <% if @train.route %>
+    <%= @train.route.name %>
+  <% else %>
+    Train not at route.
+  <% end %>
+</p>
+
+<%= render 'carriages' %>
+
+<p>
+  <%= link_to "Add carriage", new_admin_train_carriage_path(@train) %>
+</p>
+
+<p>
+  <%= link_to 'Edit', edit_admin_train_path(@train) %> |
+  <%= link_to 'Back', admin_trains_path %><br>
+  <%= link_to 'Back to index', welcome_index_path %>
+</p>
