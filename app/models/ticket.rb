@@ -1,5 +1,5 @@
 class Ticket < ActiveRecord::Base
-  validates :number, presence: true
+  validates :number, :passenger, :passport, presence: true
   before_validation :set_number
 
   belongs_to :user
