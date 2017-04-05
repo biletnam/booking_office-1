@@ -31,7 +31,12 @@
             <td><%= @search.find_start_station.set_time(result.route, :departure) %></td>
             <td><%= @search.find_end_station.set_time(result.route, :arrival) %></td>
             <td>
-              <%= link_to "Buy ticket", new_ticket_path( train_id: result.id, start_station_id: @search.start_station_id, end_station_id: @search.end_station_id ) %>
+              <%= link_to "Buy ticket", 
+              if current_user.admin?
+                new_admin_ticket_path(train_id: result.id, start_station_id: @search.start_station_id, end_station_id: @search.end_station_id)
+              else
+                new_ticket_path(train_id: result.id, start_station_id: @search.start_station_id, end_station_id: @search.end_station_id)
+              end %>
               <% end %>
             <% end %>
             </td>
@@ -39,3 +44,10 @@
         </tbody>
       </table>
   <% end %>
+  
+  
+
+  
+  
+  
+  
