@@ -1,30 +1,32 @@
-<p>
-  <strong>Ticket customer: </strong>
-  <%= @ticket.user.name %>
-</p>
-<p>
-  <strong>Number:</strong>
-  <%= @ticket.number %>
-</p>
-<p>
-  <strong>Train number: </strong>
-  <%= @ticket.train.number %>
-</p>
-<p>
-  <strong>Start station: </strong>
-  <%= @ticket.start_station.title %>
-</p>
-<p>
-  <strong>End station: </strong>
-  <%= @ticket.end_station.title %>
-</p>
-<p>
-  <strong>Passenger name: </strong>
-  <%= @ticket.passenger %>
-</p>
-<p>
-  <strong>Passenger passport: </strong>
-  <%= @ticket.passport %>
-</p>
-<%= link_to 'Search for tickets', search_path %>|
-<%= link_to 'Back', tickets_path %>
+<div class = 'row'>
+  <p>
+    <strong>Ticket customer: </strong>
+    <%= @ticket.user.name %>
+  </p>
+  <p>
+    <strong>Number:</strong>
+    <%= @ticket.number %>
+  </p>
+  <p>
+    <strong>Train number: </strong>
+    <%= @ticket.train.number %>
+  </p>
+  <p>
+    <strong>Start station: </strong>
+    <%= @ticket.start_station.title %>
+  </p>
+  <p>
+    <strong>End station: </strong>
+    <%= @ticket.end_station.title %>
+  </p>
+  <p>
+    <strong>Passenger name: </strong>
+    <%= @ticket.passenger %>
+  </p>
+  <p>
+    <strong>Passenger passport: </strong>
+    <%= @ticket.passport %>
+  </p>
+  <%= link_to 'Search for tickets', search_path, class: "btn btn-default" %>
+  <%= link_to 'Back', tickets_path, class: "btn btn-default" %>
+</div>

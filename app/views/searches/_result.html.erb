@@ -1,11 +1,11 @@
 <% if @search.results %>
-      <table>
+      <table class="table-striped table-condensed">
         <thead>
           <tr>
-            <td>Train</td>
-            <td>Route</td>
-            <td>Departure</td>
-            <td>Arrival</td>
+            <td><mark>Train</mark></td>
+            <td><mark>Route</mark></td>
+            <td><mark>Departure</mark></td>
+            <td><mark>Arrival</mark></td>
           </tr>
         </thead>
         <tbody>
@@ -21,7 +21,7 @@
                 new_admin_ticket_path(train_id: result.id, start_station_id: @search.start_station_id, end_station_id: @search.end_station_id)
               else
                 new_ticket_path(train_id: result.id, start_station_id: @search.start_station_id, end_station_id: @search.end_station_id)
-              end %>
+              end, class: 'btn btn-default' %>
           <% end %>
 <% end %>
             </td>

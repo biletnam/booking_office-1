@@ -7,20 +7,20 @@
 
   <div class="field">
     <%= f.label :number %>
-    <%= f.text_field :number %>
+    <%= f.text_field :number, class: "form-control" %>
   </div>
 
   <div class="field">
-    <%= f.label :passenger, "Passenger name" %>
+    <%= f.label :passenger, "Passenger name", class: "form-control" %>
     <%= f.text_field :passenger %>
   </div>
 
   <div class="field">
-    <%= f.label :passport, "Passport number" %>
+    <%= f.label :passport, "Passport number", class: "form-control" %>
     <%= f.text_field :passport %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Buy ticket" %>
+    <%= f.submit "Buy ticket", class: "btn btn-default" %>
   </div>
 <% end %>
