@@ -1,9 +1,10 @@
 <p>
-  <strong>Carriages:</strong>
+  <strong><%= t('.title') %>:</strong>
   <% if @train.carriages.empty? %>
-      No carriages connected.
+      <%= t('.no_carriages')%>
   <% else %>
-    <p id = "carriages"><%= show_carriages([:admin, carriage]) %></p>
+    <p id = "carriages">
+      <%= show_carriages([:admin, carriage]) %></p>
     <!-- <p>-->
     <!--  Number of carriages:-->
     <!--</p>-->

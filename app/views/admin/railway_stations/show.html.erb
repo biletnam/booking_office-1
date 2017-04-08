@@ -1,14 +1,12 @@
-<p id="notice"><%= notice %></p>
-
 <p>
-  <strong>Title:</strong>
+  <strong><%= t('.title') %>:</strong>
   <%= @railway_station.title %>
 </p>
 
 <% if @railway_station.routes.empty? %>
-  <p>Not included in any route.</p>
+  <p><%= t('.not_in_route') %></p>
 <% else %>
-  <p>The station is part of following routes:</p>
+  <p><%= t('.in_route') %>:</p>
   <ul>
     <% @railway_station.routes.each do |route| %>
     <li><%= route.name %></li>
@@ -16,9 +14,8 @@
   </ul>
 <% end %>
 
-
 <p>
-  <%= link_to 'Edit', edit_admin_railway_station_path(@railway_station) %> |
-  <%= link_to 'Back', admin_railway_stations_path %><br>
-  <%= link_to 'Back to index', welcome_index_path %>
+  <%= link_to t('common.edit'), edit_admin_railway_station_path(@railway_station), class: 'btn btn-default' %><br>
+  <%= link_to t('common.back'), admin_railway_stations_path, class: 'btn btn-default'  %><br>
+  <%= link_to t('common.index'), welcome_index_path, class: 'btn btn-default'  %>
 </p>

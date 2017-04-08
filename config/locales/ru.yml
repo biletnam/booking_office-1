@@ -1,0 +1,55 @@
+ru:
+  common:
+    back: 'Назад'
+    show:   'Показать'
+    edit:   'Изменить'
+    delete: 'Удалить'
+    errors: 'При заполнении формы возникли ошибки'
+    index: 'На главную'
+    confirm: 'Вы уверены?'
+  admin:
+    railway_stations:
+      new:
+        header: 'Новая станция'
+      index:
+        header: 'Станции'
+        title: 'Название'
+        new: 'Создать станцию'
+      show:
+        title: 'Станция'
+        in_route: 'Входит в маршруты'
+        not_in_route: 'Не входит ни в один маршрут'
+      edit:
+        header: 'Изменить станцию'
+      form:
+        submit: '%{action} станцию'
+    trains:
+      new:
+        header: 'Новый поезд'
+      edit:
+        header: 'Редактировать поезд'
+      index:
+        header: 'Поезда'
+        number: 'Номер'
+        new: 'Создать поезд'
+      show:
+        details: 'Информация о поезде'
+        number: 'Номер'
+        at_station: 'На станции'
+        not_at_station: 'Поезд не на станции'
+        at_route: 'Входит в маршрут'
+        not_at_route: 'Не входит ни в один маршрут'
+        carriages: 'Вагоны'
+        add_carriage: 'Добавить вагон'
+      carriages:
+        title: 'Вагоны'
+        no_carriages: 'Вагонов нет'
+      form:
+        route: 'Маршрут'
+        submit: '%{action} поезд'
+  welcome:
+    index:
+      stations: 'Список станций'
+      trains: 'Список поездов'
+      routes: 'Маршруты'
+      tickets: 'Поиск билетов'
