@@ -15,10 +15,12 @@ class Admin::RoutesController < Admin::BaseController
     @route = Route.new(route_params)
 
     respond_to do |format|
-      if @route.save
-        format.html { redirect_to [:admin, @route], notice: 'Route was successfully created.' }
-      else
-        format.html { render :new }
+      format.html do
+        if @route.save
+          redirect_to [:admin, @route], notice: 'Route was successfully created.'
+        else
+          render :new
+        end
       end
     end
   end
@@ -28,10 +30,12 @@ class Admin::RoutesController < Admin::BaseController
 
   def update
     respond_to do |format|
-      if @route.update(route_params)
-        format.html { redirect_to [:admin, @route], notice: 'Route was successfully updated.' }
-      else
-        format.html { render :edit }
+      format.html do
+        if @route.update(route_params)
+          redirect_to [:admin, @route], notice: 'Route was successfully updated.'
+        else
+          render :edit
+        end
       end
     end
   end

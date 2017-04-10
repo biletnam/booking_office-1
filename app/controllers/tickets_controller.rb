@@ -30,10 +30,10 @@ class TicketsController < ApplicationController
   private
 
   def set_ticket
-    @ticket = Ticket.find(params[:id])
+    @ticket = current_user.tickets.find(params[:id])
   end
 
   def ticket_params
-    params.require(:ticket).permit(:number, :train_id, :start_station_id, :end_station_id, :user_id, :passenger, :passport)
+    params.require(:ticket).permit(:number, :train_id, :start_station_id, :end_station_id, :passenger, :passport)
   end
 end

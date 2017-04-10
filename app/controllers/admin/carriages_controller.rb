@@ -22,20 +22,24 @@ class Admin::CarriagesController < Admin::BaseController
     @carriage = @train.carriages.new(carriage_params)
 
     respond_to do |format|
-      if @carriage.save
-        format.html { redirect_to [:admin, @carriage.train], notice: "Carriage was successfully created." }
-      else
-        format.html { render :new }
+      format.html do 
+        if @carriage.save
+          redirect_to [:admin, @carriage.train], notice: "Carriage was successfully created."
+        else
+          render :new
+        end
       end
     end
   end
 
   def update
     respond_to do |format|
-      if @carriage.update(carriage_params)
-        format.html { redirect_to [:admin, @carriage], notice: 'Carriage was successfully updated.' }
-      else
-        format.html { render :edit }
+      format.html do 
+        if @carriage.update(carriage_params)
+          redirect_to [:admin, @carriage], notice: 'Carriage was successfully updated.'
+        else
+          render :edit 
+        end
       end
     end
   end

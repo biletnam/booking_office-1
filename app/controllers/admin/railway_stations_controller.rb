@@ -20,20 +20,24 @@ class Admin::RailwayStationsController < Admin::BaseController
     @railway_station = RailwayStation.new(railway_station_params)
 
     respond_to do |format|
-      if @railway_station.save
-        format.html { redirect_to [:admin, @railway_station], notice: 'Railway station was successfully created.' }
-      else
-        format.html { render :new }
+      format.html do
+        if @railway_station.save
+          redirect_to [:admin, @railway_station], notice: 'Railway station was successfully created.'
+        else
+          render :new
+        end
       end
     end
   end
 
   def update
     respond_to do |format|
-      if @railway_station.update(railway_station_params)
-        format.html { redirect_to [:admin, @railway_station], notice: 'Railway station was successfully updated.' }
-      else
-        format.html { render :edit }
+      format.html do 
+        if @railway_station.update(railway_station_params)
+          redirect_to [:admin, @railway_station], notice: 'Railway station was successfully updated.'
+        else
+          render :edit
+        end
       end
     end
   end
