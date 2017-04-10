@@ -22,7 +22,9 @@ ru:
       edit:
         header: 'Изменить станцию'
       form:
-        submit: '%{action} станцию'
+        submit:
+          new: 'Создать'
+          edit: 'Изменить'
     trains:
       new:
         header: 'Новый поезд'
@@ -46,7 +48,9 @@ ru:
         no_carriages: 'Вагонов нет'
       form:
         route: 'Маршрут'
-        submit: '%{action} поезд'
+        submit:
+          new: 'Создать'
+          edit: 'Изменить'
   welcome:
     index:
       stations: 'Список станций'

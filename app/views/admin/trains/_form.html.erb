@@ -19,6 +19,6 @@
   </div>
   
   <div class="actions">
-    <%= f.submit t(".submit", action: @train.new_record? ? 'Создать' : 'Изменить'), class: 'btn btn-default' %>
+    <%= f.submit t(".submit.#{@train.new_record? ? :new : :edit}"), class: 'btn btn-default' %>
   </div>
 <% end %>
