@@ -1,0 +1,16 @@
+<%= form_for [:admin, railway_station] do |f| %>
+  
+  <%= render 'common/errors', resource: railway_station  %>
+
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit t(".submit.#{@railway_station.new_record? ? :new : :edit}"), class: 'btn btn-default'  %>
+  </div>
+<% end %>
+
+
+<!--t(".submit.#{@railway_station.new_record? ? :new : :change}")-->

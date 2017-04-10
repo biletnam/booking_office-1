@@ -12,6 +12,4 @@ class Route < ActiveRecord::Base
   def set_name
     self.name = "#{railway_stations.first.title} - #{railway_stations.last.title}"
   end 
-
-
 end

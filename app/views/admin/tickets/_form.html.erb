@@ -1,0 +1,31 @@
+<%= form_for [:admin, ticket] do |f| %>
+  <%= render 'common/errors', resource: @ticket %>
+
+  <%= f.hidden_field :train_id %>
+  <%= f.hidden_field :start_station_id %>
+  <%= f.hidden_field :end_station_id %>
+
+  <div class="field">
+    <%= f.label :number%>
+    <%= f.text_field :number, class: "form-control" %>
+  </div>
+ 
+  <div class="field">
+    <%= f.label :user_id, "Customer name" %>
+    <%= f.collection_select :user_id, User.all, :id, :name, {}, {class: "form-control"}  %>
+  </div>
+
+  <div class="field">
+    <%= f.label :passenger, "Passenger name" %>
+    <%= f.text_field :passenger, class: "form-control"  %>
+  </div>
+
+  <div class="field">
+    <%= f.label :passport, "Passport number" %>
+    <%= f.text_field :passport, class: "form-control"  %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "#{ @ticket.new_record? ? "Buy ticket" : "Save edits" }", class: 'btn btn-default'  %>
+  </div>
+<% end %>

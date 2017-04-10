@@ -1,0 +1,21 @@
+<p>
+  <strong><%= t('.title') %>:</strong>
+  <%= @railway_station.title %>
+</p>
+
+<% if @railway_station.routes.empty? %>
+  <p><%= t('.not_in_route') %></p>
+<% else %>
+  <p><%= t('.in_route') %>:</p>
+  <ul>
+    <% @railway_station.routes.each do |route| %>
+    <li><%= route.name %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<p>
+  <%= link_to t('common.edit'), edit_admin_railway_station_path(@railway_station), class: 'btn btn-default' %><br>
+  <%= link_to t('common.back'), admin_railway_stations_path, class: 'btn btn-default'  %><br>
+  <%= link_to t('common.index'), welcome_index_path, class: 'btn btn-default'  %>
+</p>

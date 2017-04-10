@@ -1,0 +1,35 @@
+<h3><%= t('.details')%></h3>
+<p>
+  <strong><%= t('.number')%></strong>
+  <%= @train.number %>
+</p>
+
+<p>
+  <strong><%= t('.at_station') %>:</strong> 
+  <% if @train.current_station %>
+    <%= @train.current_station.title %>
+  <% else %>
+    <%= t('.not_at_station') %>.
+  <% end %>
+</p>
+
+<p>
+  <strong><%= t('.at_route') %>:</strong> 
+  <% if @train.route %>
+    <%= @train.route.name %>
+  <% else %>
+    <%= t('.not_at_route') %>.
+  <% end %>
+</p>
+
+<%= render 'carriages' %>
+
+<p>
+  <%= link_to t('.add_carriage'), new_admin_train_carriage_path(@train), class: 'btn btn-default'%>
+</p>
+
+<p>
+  <%= link_to t('common.edit'), edit_admin_train_path(@train), class: 'btn btn-default' %><br>
+  <%= link_to t('common.back'), admin_trains_path, class: 'btn btn-default' %><br>
+  <%= link_to t('common.index'), welcome_index_path, class: 'btn btn-default' %>
+</p>

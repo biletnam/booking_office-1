@@ -1,5 +1,8 @@
-<h1>Booking office.</h1>
-<p><%= link_to 'Staions list', railway_stations_path %></p>
-<p><%= link_to 'Trains list', trains_path %></p>
-<p><%= link_to 'Carriages list', carriages_path %></p>
-<p><%= link_to 'Routes list', routes_path %></p>
+<div class = 'row'>
+  <p><%= link_to t('.stations'), admin_railway_stations_path, class: "btn btn-link" %></p>
+  <p><%= link_to t('.trains'), admin_trains_path, class: "btn btn-link" %></p>
+  
+  <p><%= link_to t('.routes'), admin_routes_path, class: "btn btn-link" %></p>
+  
+  <p><strong><%= link_to t('.tickets'), search_path, class: "btn btn-default" %></strong></p>
+</div>

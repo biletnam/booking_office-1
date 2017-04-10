@@ -1,0 +1,30 @@
+<% if @search.results %>
+      <table class="table-striped table-condensed">
+        <thead>
+          <tr>
+            <td><mark>Train</mark></td>
+            <td><mark>Route</mark></td>
+            <td><mark>Departure</mark></td>
+            <td><mark>Arrival</mark></td>
+          </tr>
+        </thead>
+        <tbody>
+          <% @search.results.each do |result| %>
+          <tr>
+            <td><%= result.number %></td>
+            <td><%= result.route.name %></td>
+            <td><%= @search.find_start_station.set_time(result.route, :departure) %></td>
+            <td><%= @search.find_end_station.set_time(result.route, :arrival) %></td>
+            <td>
+              <%= link_to "Buy ticket", 
+              if current_user.admin?
+                new_admin_ticket_path(train_id: result.id, start_station_id: @search.start_station_id, end_station_id: @search.end_station_id)
+              else
+                new_ticket_path(train_id: result.id, start_station_id: @search.start_station_id, end_station_id: @search.end_station_id)
+              end, class: 'btn btn-default' %>
+          <% end %>
+<% end %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
