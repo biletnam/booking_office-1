@@ -6,11 +6,6 @@
   <%= f.hidden_field :end_station_id %>
 
   <div class="field">
-    <%= f.label :number%>
-    <%= f.text_field :number, class: "form-control" %>
-  </div>
- 
-  <div class="field">
     <%= f.label :user_id, "Customer name" %>
     <%= f.collection_select :user_id, User.all, :id, :name, {}, {class: "form-control"}  %>
   </div>
