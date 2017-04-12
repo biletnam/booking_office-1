@@ -12,7 +12,7 @@
         <%= f.collection_select :end_station_id, RailwayStation.all, :id, :title, {}, {class: "form-control"} %>
       </p>
       <p>
-        <%= f.submit 'Search', class: 'btn btn-default' %>
+        <%= f.submit 'Search', class: 'btn btn-default find' %>
       </p>
       <% end %>
   </div>
