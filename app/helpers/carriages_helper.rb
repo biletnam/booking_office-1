@@ -40,7 +40,7 @@ module CarriagesHelper
  
  
  def sti_carriage_path(type = "carriage", carriage = nil, action = nil)
-   send "#{format_sti(action, type, carriage)}_path", carriage
+   send "admin_train_#{format_sti(action, type, carriage)}_path", carriage
  end
 
  def format_sti(action, type, carriage)
