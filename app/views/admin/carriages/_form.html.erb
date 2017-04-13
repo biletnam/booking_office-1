@@ -9,22 +9,21 @@
 
   <div class = 'field'>
     <%= f.label :type %>
-    <%= f.select :type, Carriage.types, {}, { :onChange=>"renderPartial();" } %> 
+    <%= f.select :type, Carriage.types, { } %> 
   </div>
 
-  <div class = 'CoupeCarriage', id = "CoupeCarriage">
-    <%= render 'coupe', f: f  %>
-  </div>
-  <div class = 'EconomyCarriage', id = "EconomyCarriage">
-    <%= render 'economy', f: f  %>
-  </div>
-  <div class = 'SoftSeatsCarriage', id = "SoftSeatsCarriage">
-    <%= render 'soft_seats', f: f  %>
-  </div>
-  <div class = 'LuxeCarriage', id = "LuxeCarriage">
-    <%= render 'luxe', f: f  %>
-  </div>
-
+    <div class = 'CoupeCarriage type', id = "CoupeCarriage">
+      <%= render 'coupe', f: f  %>
+    </div>
+    <div class = 'EconomyCarriage type', id = "EconomyCarriage">
+      <%= render 'economy', f: f  %>
+    </div>
+    <div class = 'SoftSeatsCarriage type', id = "SoftSeatsCarriage">
+      <%= render 'soft_seats', f: f  %>
+    </div>
+    <div class = 'LuxeCarriage type', id = "LuxeCarriage">
+      <%= render 'luxe', f: f  %>
+    </div>
 
   <div class = 'field'>
     <%= f.label 'Connect to train' %>
